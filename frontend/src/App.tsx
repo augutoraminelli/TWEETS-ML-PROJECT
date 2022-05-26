@@ -19,8 +19,8 @@ function App() {
   
   return (
     <ul>
-      {data && data.users.map(user => (
-        <li key={user.id}>{user.name}</li>
+      {data && data.users.map((user, index) => (
+        <li key={index}>{user.name}</li>
       ))}
     </ul>
   )
