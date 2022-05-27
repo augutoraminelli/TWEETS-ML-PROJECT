@@ -20,4 +20,14 @@ export class TweetMLResolver {
 
     return newTweet;
   }
+
+  @Mutation(() => Tweet)
+  async removeTweet(@Arg('id') id: string): Promise<Tweet> {
+    const tweet = this.data.find(t => t.id === id);
+    if (!tweet) {
+      throw new Error('Tweet not found');
+    }
+    this.data = this.data.filter(t => t.id !== id);
+    return tweet;
+  }
 }

@@ -6,6 +6,7 @@
 type Mutation {
   createTweet(tweet: String!): Tweet!
   createUser(name: String!): User!
+  removeTweet(id: String!): Tweet!
   removeUser(id: String!): User!
 }
 

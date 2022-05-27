@@ -3,15 +3,6 @@ import { Home } from "./pages/Home";
 
 import './App.css';
 
-  export const DELETE_USER = gql`
-    mutation ($id: String!) {
-      removeUser(id: $id) {
-        id
-        name
-      }
-    }
-  `;
-
 function App() {
   // const [removeUser] = useMutation(DELETE_USER);
   // const handleDelete = async (id: string) => {
