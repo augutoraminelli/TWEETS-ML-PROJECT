@@ -11,7 +11,7 @@ export const GET_USERS = gql`
   }
   `;
 
-  const DELETE_USER = gql`
+  export const DELETE_USER = gql`
     mutation ($id: String!) {
       removeUser(id: $id) {
         id
@@ -47,7 +47,7 @@ function App() {
             {user.name}
             <button
               type="button"
-              onClick={() => handleDelete(user.id)}
+              onClick={() => handleDelete(user.id as string)}
             >
               Delete
             </button>
