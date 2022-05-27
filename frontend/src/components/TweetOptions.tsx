@@ -79,8 +79,7 @@ export function TweetOptions() {
         {options.map((option) => (
           <MenuItem 
             key={option}
-            selected={option === 'Pyxis'}
-            onClick={() => handleDelete(option)} 
+            onClick={() => handleDelete(option)}
           >
             {option}
           </MenuItem>
