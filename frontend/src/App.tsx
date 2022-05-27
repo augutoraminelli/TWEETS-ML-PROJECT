@@ -12,8 +12,8 @@ export const GET_USERS = gql`
   `;
 
   const DELETE_USER = gql`
-    mutation removeUser ($id: String!) {
-      delete_user(where: {id: {_eq: $id}}) {
+    mutation ($id: String!) {
+      removeUser(id: $id) {
         id
         name
       }
@@ -29,16 +29,13 @@ function App() {
   }
 
   const handleDelete = async (id: string) => {
-    
     if (!id) {
       return;
     }  
-
     await removeUser({
       variables: { id },
-      // refetchQueries: [GET_USERS]
+      refetchQueries: [GET_USERS]
     });
-    console.log(id);
   }
   
   return (
