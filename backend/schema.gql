@@ -4,12 +4,19 @@
 # -----------------------------------------------
 
 type Mutation {
+  createTweet(tweet: String!): Tweet!
   createUser(name: String!): User!
   removeUser(id: String!): User!
 }
 
 type Query {
+  tweets: [Tweet!]!
   users: [User!]!
+}
+
+type Tweet {
+  id: String!
+  tweet: String!
 }
 
 type User {

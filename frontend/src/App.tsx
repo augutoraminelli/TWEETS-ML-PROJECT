@@ -1,12 +1,12 @@
 import { gql, useQuery, useMutation } from "@apollo/client";
-import { NewUserForm } from "./component/NewUserForm";
-import { User } from "./types/User";
+import { Feed } from "./component/Feed";
+import { Tweet } from "./types/Tweets";
 
-export const GET_USERS = gql`
+export const GET_TWEETS = gql`
   query {
-    users {
+    tweets {
       id
-      name
+      tweet
     }
   }
   `;
@@ -21,36 +21,30 @@ export const GET_USERS = gql`
   `;
 
 function App() {
-  const { data, loading } = useQuery<{ users: User[] }>(GET_USERS);
-  const [removeUser] = useMutation(DELETE_USER);
+  const { data, loading } = useQuery<{ tweets: Tweet[] }>(GET_TWEETS);
+  // const [removeUser] = useMutation(DELETE_USER);
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  const handleDelete = async (id: string) => {
-    if (!id) {
-      return;
-    }  
-    await removeUser({
-      variables: { id },
-      refetchQueries: [GET_USERS]
-    });
-  }
+  // const handleDelete = async (id: string) => {
+  //   if (!id) {
+  //     return;
+  //   }  
+  //   await removeUser({
+  //     variables: { id },
+  //     refetchQueries: [GET_TWEETS]
+  //   });
+  // }
   
   return (
     <div>
-      <NewUserForm />
+      <Feed />
       <ul>
-        {data && data.users.map((user, index) => (
+        {data && data.tweets.map((tweet, index) => (
           <li key={index}>
-            {user.name}
-            <button
-              type="button"
-              onClick={() => handleDelete(user.id as string)}
-            >
-              Delete
-            </button>
+            {tweet.tweet}
           </li>
         ))}
       </ul>

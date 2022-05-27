@@ -3,11 +3,13 @@ import "reflect-metadata";
 import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import { UserResolver } from './src/resolvers/UserResolver';
+import { TweetMLResolver } from './src/resolvers/TweetResolver';
 
 async function main() {
   const schema = await buildSchema({
     resolvers: [
-      UserResolver
+      UserResolver,
+      TweetMLResolver
     ],
     emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
