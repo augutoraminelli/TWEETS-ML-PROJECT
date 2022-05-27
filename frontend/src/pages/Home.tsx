@@ -6,6 +6,8 @@ import { Tweet } from "../types/Tweets";
 import { PostItem } from '../components/PostItem';
 import { Container } from '@mui/material';
 
+import { FormNewTweet } from '../components/FormNewTweet';
+
 export const GET_TWEETS = gql`
   query {
     tweets {
@@ -25,7 +27,8 @@ export function Home() {
   }
 
   return (
-      <Container maxWidth="sm" style={{ marginTop:"1em"}}>
+      <Container maxWidth="sm" style={{ marginTop:"4em"}}>
+        <FormNewTweet />
         <List sx={{ width: '90%', maxWidth: 500, bgcolor: 'background.paper' }}>
           { data && data.tweets.map((tweet, index) => (
             <PostItem key={index} tweet={tweet.tweet as string} />

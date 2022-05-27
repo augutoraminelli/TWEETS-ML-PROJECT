@@ -7,7 +7,7 @@ import Avatar from '@mui/material/Avatar';
 
 export function PostItem({ tweet }: { tweet: string }) {
   return (
-    <>
+    <div style={{ padding: "0.5em" }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -17,6 +17,6 @@ export function PostItem({ tweet }: { tweet: string }) {
         />
       </ListItem>
       <Divider variant="inset" component="li" />
-    </>
+    </div>
   )
 }
