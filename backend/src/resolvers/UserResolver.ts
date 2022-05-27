@@ -20,4 +20,15 @@ export class UserResolver {
 
     return user;
   }
+
+  @Mutation(() => User)
+  async removeUser(
+    @Arg('id') id: string): Promise<User> {
+    const user = this.data.find(user => user.id === id);
+    if (!user) {
+      throw new Error('User not found');
+    }
+    this.data = this.data.filter(user => user.id !== id);
+    return user;
+  }
 }
