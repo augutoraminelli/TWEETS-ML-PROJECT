@@ -5,6 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 
+import { TweetOptions } from './TweetOptions';
+
 export function PostItem({ tweet }: { tweet: string }) {
   return (
     <div style={{ padding: "0.5em" }}>
@@ -15,6 +17,7 @@ export function PostItem({ tweet }: { tweet: string }) {
         <ListItemText
           primary={ tweet }
         />
+        <TweetOptions />
       </ListItem>
       <Divider variant="inset" component="li" />
     </div>
