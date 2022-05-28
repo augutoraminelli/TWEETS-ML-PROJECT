@@ -19,9 +19,7 @@ export const GET_TWEETS = gql`
 
 export function Home() {
   const { data, loading } = useQuery<{ tweets: Tweet[] }>(GET_TWEETS)
-  console.log(data);
   
-
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -31,7 +29,7 @@ export function Home() {
         <FormNewTweet />
         <List sx={{ width: '90%', maxWidth: 500, bgcolor: 'background.paper' }}>
           { data && data.tweets.map((tweet, index) => (
-            <PostItem key={index} tweet={tweet.tweet as string} />
+            <PostItem key={index} tweet={tweet} />
           )) }
         </List>
       </Container>
