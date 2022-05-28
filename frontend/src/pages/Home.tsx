@@ -29,7 +29,7 @@ export function Home() {
       <Container maxWidth="sm" style={{ marginTop:"1em"}}>
         <NavBar />
         <FormNewTweet />
-        <List sx={{ width: '90%', maxWidth: 500, bgcolor: 'background.paper' }}>
+        <List sx={{ width: '100%', maxWidth: 500 }}>
           { data && data.tweets.map((tweet, index) => (
             <PostItem key={index} tweet={tweet} />
           )) }

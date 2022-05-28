@@ -4,13 +4,14 @@
 
 .logo-meli {
   height: 40px;
+  border-radius: 3rem;
 }
 
 .Appbar {
-  background-color: #f1e12c;
+  background-color: #fef159;
   width: 100%;
 }
 
 body {
-  background-color: #f1e12c;
+  background-color: #fef159;
 }
