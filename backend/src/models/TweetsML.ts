@@ -10,4 +10,7 @@ export class Tweet {
 
   @Field()
   tweet: string;
+
+  @Field()
+  createdAt: Date;
 }

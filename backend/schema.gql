@@ -3,6 +3,11 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
 type Mutation {
   createTweet(tweet: String!, useranme: String!): Tweet!
   createUser(name: String!): User!
@@ -16,6 +21,7 @@ type Query {
 }
 
 type Tweet {
+  createdAt: DateTime!
   id: String!
   tweet: String!
   username: String!

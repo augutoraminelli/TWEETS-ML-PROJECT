@@ -14,9 +14,9 @@ export class TweetMLResolver {
   @Mutation(() => Tweet)
   async createTweet(
     @Arg('useranme') username: string,
-    @Arg('tweet') tweet: string
+    @Arg('tweet') tweet: string,
     ): Promise<Tweet> {
-    const newTweet = { id: crypto.randomUUID(), username, tweet };
+    const newTweet = { id: crypto.randomUUID(), username, tweet, createdAt: new Date() };
 
     this.data.push(newTweet);
 

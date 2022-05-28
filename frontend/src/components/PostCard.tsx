@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import { blue, yellow } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import moment from 'moment';
 
 import { gql, useMutation } from "@apollo/client";
 import { GET_TWEETS } from "../pages/Home";
@@ -68,8 +69,8 @@ export function PostCard({ tweet }: { tweet: any }) {
           onClick={() => handleDelete(tweet.id)}
         />
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={tweet.username}
+        subheader={moment(tweet.createdAt).format("MMM Do YY")}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
