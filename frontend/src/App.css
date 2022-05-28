@@ -17,6 +17,11 @@
   width: 100%;
 }
 
+.new-tweet-btn {
+  color: blue;
+  border-radius: 10rem;
+}
+
 body {
   background-color: #fef159;
 }

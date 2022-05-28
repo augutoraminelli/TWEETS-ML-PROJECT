@@ -6,9 +6,9 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { Tweet } from "../types/Tweets";
 
 import { FormNewTweet } from '../components/FormNewTweet';
-import { PostItem } from '../components/PostItem';
 import { NavBar } from '../components/NavBar';
 import { PostCard } from '../components/PostCard';
+import { ButtonNewTweet } from '../components/ButtonNewTweet';
 // import { BottomNav } from '../components/BottomNav';
 
 export const GET_TWEETS = gql`
@@ -32,12 +32,13 @@ export function Home() {
   return (
       <Container maxWidth="sm" style={{ marginTop:"1em"}}>
         <NavBar />
-        <FormNewTweet />
+        {/* <FormNewTweet /> */}
         <List sx={{ width: '100%', maxWidth: 500 }}>
           { data && data.tweets.map((tweet, index) => (
             <PostCard key={index} tweet={tweet} />
           )) }
         </List>
+        <ButtonNewTweet />
         {/* <BottomNav /> */}
       </Container>
   );
