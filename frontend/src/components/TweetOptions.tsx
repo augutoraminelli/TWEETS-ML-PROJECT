@@ -52,7 +52,7 @@ export function TweetOptions() {
         {options.map((option) => (
           <MenuItem 
             key={option}
-            // onClick={() => handleDelete(option)}
+            onClick={() => console.log(option)}
           >
             {option}
           </MenuItem>

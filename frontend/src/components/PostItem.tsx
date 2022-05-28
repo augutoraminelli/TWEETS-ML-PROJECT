@@ -48,7 +48,7 @@ export function PostItem({ tweet }: { tweet: any }) {
           name="delete"
           onClick={() => handleDelete(tweet.id)}
         />
-        <TweetOptions />
+        {/* <TweetOptions handleDelete={handleDelete}/> */}
       </ListItem>
       <Divider variant="inset" component="li" />
     </div>
