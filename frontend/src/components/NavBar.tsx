@@ -36,7 +36,7 @@ export const NavBar = () => {
 
   return (
     <AppBar position="static">
-      <Container className='Appbar'>
+      <Container className='app-bar'>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <img 

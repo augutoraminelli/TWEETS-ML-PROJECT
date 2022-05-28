@@ -3,18 +3,7 @@ import { Home } from "./pages/Home";
 
 import './App.css';
 
-function App() {
-  // const [removeUser] = useMutation(DELETE_USER);
-  // const handleDelete = async (id: string) => {
-  //   if (!id) {
-  //     return;
-  //   }  
-  //   await removeUser({
-  //     variables: { id },
-  //     refetchQueries: [GET_TWEETS]
-  //   });
-  // }
-  
+function App() {  
   return (
     <div className="App">
       <Home />

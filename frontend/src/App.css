@@ -7,7 +7,12 @@
   border-radius: 3rem;
 }
 
-.Appbar {
+.app-bar {
+  background-color: #fef159;
+  width: 100%;
+}
+
+.bottom-nav {
   background-color: #fef159;
   width: 100%;
 }

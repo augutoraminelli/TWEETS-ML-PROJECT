@@ -8,6 +8,7 @@ import { Tweet } from "../types/Tweets";
 import { FormNewTweet } from '../components/FormNewTweet';
 import { PostItem } from '../components/PostItem';
 import { NavBar } from '../components/NavBar';
+import { BottomNav } from '../components/BottomNav';
 
 export const GET_TWEETS = gql`
   query {
@@ -34,6 +35,7 @@ export function Home() {
             <PostItem key={index} tweet={tweet} />
           )) }
         </List>
+        {/* <BottomNav /> */}
       </Container>
   );
 }
