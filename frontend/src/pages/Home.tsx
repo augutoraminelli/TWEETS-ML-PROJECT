@@ -1,12 +1,13 @@
 import * as React from 'react';
 import List from '@mui/material/List';
+import { Container } from '@mui/material';
 
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { Tweet } from "../types/Tweets";
-import { PostItem } from '../components/PostItem';
-import { Container } from '@mui/material';
 
 import { FormNewTweet } from '../components/FormNewTweet';
+import { PostItem } from '../components/PostItem';
+import { NavBar } from '../components/NavBar';
 
 export const GET_TWEETS = gql`
   query {
@@ -25,7 +26,8 @@ export function Home() {
   }
 
   return (
-      <Container maxWidth="sm" style={{ marginTop:"4em"}}>
+      <Container maxWidth="sm" style={{ marginTop:"1em"}}>
+        <NavBar />
         <FormNewTweet />
         <List sx={{ width: '90%', maxWidth: 500, bgcolor: 'background.paper' }}>
           { data && data.tweets.map((tweet, index) => (

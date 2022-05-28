@@ -2,6 +2,15 @@
   text-align: center
 }
 
+.logo-meli {
+  height: 40px;
+}
+
+.Appbar {
+  background-color: #f1e12c;
+  width: 100%;
+}
+
 body {
-  background-color: rgb(245, 238, 141);
+  background-color: #f1e12c;
 }
