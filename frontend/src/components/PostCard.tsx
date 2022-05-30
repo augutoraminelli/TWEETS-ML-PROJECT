@@ -42,7 +42,6 @@ mutation ($id: String!) {
 
 export function PostCard({ tweet }: { tweet: any }) {
   const [deleteTweet, { data, loading, error }] = useMutation(DELETE_TWEET);
-  console.log('tweets', tweet);
   
   const handleDelete = async (id: string) => {
     if (!id) {

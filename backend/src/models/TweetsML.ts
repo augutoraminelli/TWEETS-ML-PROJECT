@@ -5,8 +5,8 @@ export class Tweet {
   @Field()
   id: string;
 
-  @Field()
-  username: string;
+  // @Field()
+  // username: string;
 
   @Field()
   tweet: string;

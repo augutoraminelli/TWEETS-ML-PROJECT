@@ -15,7 +15,6 @@ export const GET_TWEETS = gql`
   query {
     tweets {
       id
-      username
       tweet
       createdAt
     }

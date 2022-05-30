@@ -16,13 +16,14 @@ mutation ($tweet: String!) {
   createTweet(tweet: $tweet) {
     id
     tweet
+    createdAt
   }
 }
 `;
 
 export function ButtonNewTweet() {
   const [open, setOpen] = useState(false);
-  const [username, setUsername] = useState("@gutoRaminelli");
+  // const [username, setUsername] = useState("@gutoRaminelli");
   const [tweet, setTweet] = useState("");
   const [createTweet, { data, loading, error }] = useMutation(CREATE_TWEET);
 
@@ -36,12 +37,13 @@ export function ButtonNewTweet() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     if (!tweet) {
       return;
     }
+
     await createTweet({
-      variables: { username, tweet },
+      variables: { tweet },
       refetchQueries: [GET_TWEETS]
     });
     handleClose();
@@ -69,8 +71,9 @@ export function ButtonNewTweet() {
             margin="dense"
             id="name"
             label="Tweet Meli"
-            type="email"
+            type="text"
             fullWidth
+            onChange={(e) => setTweet(e.target.value)}
             variant="standard"
           />
         </DialogContent>
