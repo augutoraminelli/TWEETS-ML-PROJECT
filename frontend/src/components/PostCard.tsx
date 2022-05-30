@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -10,26 +10,12 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { blue, yellow } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShareIcon from '@mui/icons-material/Share';
 import moment from 'moment';
 
 import { gql, useMutation } from "@apollo/client";
 import { GET_TWEETS } from "../pages/Home";
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export const DELETE_TWEET = gql`
 mutation ($id: String!) {
@@ -40,8 +26,19 @@ mutation ($id: String!) {
 }
 `;
 
+export const LIKE_TWEET = gql`
+mutation ($id: String!) {
+  likeTweet(id: $id) {
+    id
+    liked
+  }
+}
+`;
+
 export function PostCard({ tweet }: { tweet: any }) {
-  const [deleteTweet, { data, loading, error }] = useMutation(DELETE_TWEET);
+  const [deleteTweet] = useMutation(DELETE_TWEET);
+  const [likeTweet] = useMutation(LIKE_TWEET);
+  console.log('tweet', tweet);
   
   const handleDelete = async (id: string) => {
     if (!id) {
@@ -50,6 +47,17 @@ export function PostCard({ tweet }: { tweet: any }) {
 
     await deleteTweet({
       variables: { id },
+      refetchQueries: [GET_TWEETS]
+    });
+  }
+
+  const handleFavorite = async (id: string) => {
+    if (!id) {
+      return;
+    }
+
+    await likeTweet({
+      variables: { id, liked: true },
       refetchQueries: [GET_TWEETS]
     });
   }
@@ -77,8 +85,11 @@ export function PostCard({ tweet }: { tweet: any }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton 
+          aria-label="add to favorites"
+          onClick={() => handleFavorite(tweet.id)}
+        >
+          {tweet.liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

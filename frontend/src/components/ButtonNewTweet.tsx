@@ -17,6 +17,7 @@ mutation ($tweet: String!) {
     id
     tweet
     createdAt
+    liked
   }
 }
 `;

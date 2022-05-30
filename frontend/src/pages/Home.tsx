@@ -5,7 +5,6 @@ import { Container } from '@mui/material';
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { Tweet } from "../types/Tweets";
 
-import { FormNewTweet } from '../components/FormNewTweet';
 import { NavBar } from '../components/NavBar';
 import { PostCard } from '../components/PostCard';
 import { ButtonNewTweet } from '../components/ButtonNewTweet';
@@ -17,12 +16,15 @@ export const GET_TWEETS = gql`
       id
       tweet
       createdAt
+      liked
     }
   }
   `;
 
 export function Home() {
   const { data, loading } = useQuery<{ tweets: Tweet[] }>(GET_TWEETS)
+  console.log('tweets', data);
+  
   
   if (loading) {
     return <p>Loading...</p>;
@@ -31,7 +33,6 @@ export function Home() {
   return (
       <Container maxWidth="sm" style={{ marginTop:"1em"}}>
         <NavBar />
-        {/* <FormNewTweet /> */}
         <List sx={{ width: '100%', maxWidth: 500 }}>
           { data && data.tweets.map((tweet, index) => (
             <PostCard key={index} tweet={tweet} />

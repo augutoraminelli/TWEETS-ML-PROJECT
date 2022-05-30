@@ -13,4 +13,7 @@ export class Tweet {
 
   @Field()
   createdAt: Date;
+
+  @Field()
+  liked: boolean;
 }

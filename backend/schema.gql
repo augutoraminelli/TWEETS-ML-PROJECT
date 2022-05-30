@@ -11,6 +11,7 @@ scalar DateTime
 type Mutation {
   createTweet(tweet: String!): Tweet!
   createUser(name: String!): User!
+  likeTweet(id: String!): Tweet!
   removeTweet(id: String!): Tweet!
   removeUser(id: String!): User!
 }
@@ -23,6 +24,7 @@ type Query {
 type Tweet {
   createdAt: DateTime!
   id: String!
+  liked: Boolean!
   tweet: String!
 }
 

@@ -16,7 +16,12 @@ export class TweetMLResolver {
     // @Arg('useranme') username: string,
     @Arg('tweet') tweet: string,
     ): Promise<Tweet> {
-    const newTweet = { id: crypto.randomUUID(), tweet, createdAt: new Date() };
+    const newTweet = { 
+      id: crypto.randomUUID(),
+      tweet,
+      createdAt: new Date(),
+      liked: false,
+     };
 
     this.data.push(newTweet);
 
@@ -30,6 +35,16 @@ export class TweetMLResolver {
       throw new Error('Tweet not found');
     }
     this.data = this.data.filter(t => t.id !== id);
+    return tweet;
+  }
+
+  @Mutation(() => Tweet)
+  async likeTweet(@Arg('id') id: string): Promise<Tweet> {
+    const tweet = this.data.find(t => t.id === id);
+    if (!tweet) {
+      throw new Error('Tweet not found');
+    }
+    tweet.liked = true;
     return tweet;
   }
 }
