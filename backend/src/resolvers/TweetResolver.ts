@@ -44,7 +44,7 @@ export class TweetMLResolver {
     if (!tweet) {
       throw new Error('Tweet not found');
     }
-    tweet.liked = true;
+    tweet.liked = !tweet.liked;
     return tweet;
   }
 }

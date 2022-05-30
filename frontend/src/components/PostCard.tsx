@@ -38,13 +38,11 @@ mutation ($id: String!) {
 export function PostCard({ tweet }: { tweet: any }) {
   const [deleteTweet] = useMutation(DELETE_TWEET);
   const [likeTweet] = useMutation(LIKE_TWEET);
-  console.log('tweet', tweet);
   
   const handleDelete = async (id: string) => {
     if (!id) {
       return;
     }
-
     await deleteTweet({
       variables: { id },
       refetchQueries: [GET_TWEETS]
@@ -55,9 +53,8 @@ export function PostCard({ tweet }: { tweet: any }) {
     if (!id) {
       return;
     }
-
     await likeTweet({
-      variables: { id, liked: true },
+      variables: { id, liked: !tweet.liked },
       refetchQueries: [GET_TWEETS]
     });
   }
