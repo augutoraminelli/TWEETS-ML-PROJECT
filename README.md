@@ -1,4 +1,5 @@
-# Boas vindas ao repositório do projeto ML TWEET (EM DESENVOLVIMENTO)
+# Boas vindas ao repositório do projeto ML TWEET 
+(EM DESENVOLVIMENTO)
 
 
 ## Link Application: https://project-alura-cord.vercel.app/
@@ -19,7 +20,7 @@
 * GraphQL
 * MYSql
 
-- Tests
+`Tests
 * RTL
 
 ## Desafio
