@@ -1,6 +1,9 @@
 # Boas vindas ao repositório do projeto ML TWEET 
 (EM DESENVOLVIMENTO)
 
+![Captura de Tela 2022-06-05 às 15 57 39](https://user-images.githubusercontent.com/83237861/172066173-9d0c778e-53b5-4f72-9037-2fb5dd6cc0eb.png)
+![Captura de Tela 2022-06-05 às 15 57 46](https://user-images.githubusercontent.com/83237861/172066176-ec379d81-b048-4739-8b5a-3a9ce44d5b62.png)
+![Captura de Tela 2022-06-05 às 15 57 55](https://user-images.githubusercontent.com/83237861/172066180-d7ac6ca4-7490-4868-a44b-9f1d0b8a3f8b.png)
 
 ## Link Application: https://project-alura-cord.vercel.app/
 
