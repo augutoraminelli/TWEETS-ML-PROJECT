@@ -8,19 +8,19 @@
 
 ## Stack do projeto
 
-- Front-End
+### Front-End
 * React 
 * Apollo Client
 * MUI
 * JavaScript
 
-- Back-end
+### Back-end
 * Apollo Server
 * Node
 * GraphQL
 * MYSql
 
-`Tests
+### Tests
 * RTL
 
 ## Desafio
