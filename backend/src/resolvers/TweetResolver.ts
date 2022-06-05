@@ -18,6 +18,7 @@ export class TweetMLResolver {
     ): Promise<Tweet> {
     const newTweet = { 
       id: crypto.randomUUID(),
+      // username,
       tweet,
       createdAt: new Date(),
       liked: false,

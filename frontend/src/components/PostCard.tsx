@@ -73,7 +73,6 @@ export function PostCard({ tweet }: { tweet: any }) {
           onClick={() => handleDelete(tweet.id)}
         />
         }
-        title={tweet.username}
         subheader={moment(tweet.createdAt).format("MMM Do YY")}
       />
       <CardContent>
