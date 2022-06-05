@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto ML TWEET 
+# Boas vindas ao repositório do projeto ML TWEET (Projeto de estudos)
 (EM DESENVOLVIMENTO)
 
 ![Captura de Tela 2022-06-05 às 15 57 39](https://user-images.githubusercontent.com/83237861/172066173-9d0c778e-53b5-4f72-9037-2fb5dd6cc0eb.png)
